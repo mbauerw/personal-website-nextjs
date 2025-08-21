@@ -1,26 +1,328 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=Source+Code+Pro:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Crimson+Text:wght@400;600;700&family=Fira+Code:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Special+Elite&family=IBM+Plex+Mono&family=Roboto+Mono&family=Source+Code+Pro&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+
+/* Usage */
+
+
+/* --- Grid Layouts --- */
+.grid-container {
+  display: grid;
+  grid-template-columns: 800px minmax(0, 700px)  ; 
+  grid-template-rows: auto;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.small-container {
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+/* --- Shadow CSS --- */
+
+.elevated-paragraph {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
 }
+
+.elevated-paragraph2 {
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+}
+
+.elevated-paragraph3 {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.elevated-paragraph3:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  font-family: Arial, sans-serif;
+} 
+
+
+/* --------------- Image Stuff -------------- */
+
+.cropped-image {
+  clip-path: inset(40% 20% 30% 20%); /* top right bottom left */
+}
+
+.shadow-image {
+  box-shadow: 0 12px 14px rgba(0, 0, 0, 0.9);
+}
+
+.soft-edges {
+  box-shadow: 100px 100px 80px 80px rgba(0,0,0,0.5);
+}
+
+.blend-bg{
+  background-blend-mode: hard-light;
+}
+
+.fade-edges {
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 20%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 70%, transparent 50%);
+}
+
+.fade-horizontal {
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.clip-fade {
+  clip-path: ellipse(80% 80% at center);
+}
+
+.rounded-fade {
+  clip-path: inset(10px round 20px);
+}
+
+.gradient-1 {
+  background-image: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+}
+.gradient-2 {
+  background-image: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+}
+.gradient-3 {
+  background-image: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+}
+.gradient-4 {
+  background-image: linear-gradient(45deg, #43e97b 0%, #38f9d7 100%);
+}
+.gradient-5 {
+  background-image: linear-gradient(45deg, #fa709a 0%, #fee140 100%);
+}
+
+.center-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #333;
+  transform: translateX(-50%);
+}
+
+/* --------------- Fonts -------------------*/
+
+.typewriter-style {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  background-color: #fdfdf7; /* off-white paper look */
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.typewriter-cutive {
+  font-family: 'Cutive Mono', monospace;
+}
+
+.typewriter-special {
+  font-family: 'Special Elite', monospace;
+}
+
+.typewriter-ibm {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.typewriter-roboto {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.typewriter-source {
+  font-family: 'Source Code Pro', monospace;
+}
+
+/* Optional styling to make the typewriter look pop */
+.typewriter-style {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  background-color: #fdfdf7; /* off-white paper look */
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.typewriter {
+  font-family: 'Special Elite', 'Cutive Mono', monospace;
+}
+
+.p1 {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.p2 {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.p3 {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.monospace {
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+/* Google Fonts */
+.g1 { font-family: 'Inter', sans-serif; } /* Body text, UI */
+.g1 { font-family: 'Playfair Display', serif; } /* Headlines */
+.g3 { font-family: 'JetBrains Mono', monospace; } /* Code, numbers */
+.g4 { font-family: 'Poppins', sans-serif; } /* UI, body */
+.g5 { font-family: 'Merriweather', serif; } /* Headlines, articles */
+.g6 { font-family: 'Source Code Pro', monospace; } /* Code */
+.g7 { font-family: 'Lato', sans-serif; } /* Clean body text */
+.g8 { font-family: 'Crimson Text', serif; } /* Editorial headlines */
+.g9 { font-family: 'Fira Code', monospace; } /* Code with ligatures */
+
+
+/* System Fonts */
+.a1 { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.a2 { font-family: Arial, sans-serif; }
+.a3 { font-family: Helvetica, Arial, sans-serif; }
+.a4 { font-family: 'Times New Roman', Times, serif; }
+.a5 { font-family: Georgia, serif; }
+.a6 { font-family: 'Courier New', monospace; }
+.a7 { font-family: Verdana, Geneva, sans-serif; }
+.a8 { font-family: 'Trebuchet MS', Helvetica, sans-serif; }
+
+/* Google Fonts - Sans Serif */
+.b1 { font-family: 'Inter', sans-serif; }
+.b2 { font-family: 'Roboto', sans-serif; }
+.b3 { font-family: 'Open Sans', sans-serif; }
+.b4 { font-family: 'Lato', sans-serif; }
+.b5 { font-family: 'Montserrat', sans-serif; }
+.b6 { font-family: 'Source Sans Pro', sans-serif; }
+.b7 { font-family: 'Poppins', sans-serif; }
+.b8 { font-family: 'Raleway', sans-serif; }
+.b9 { font-family: 'Nunito', sans-serif; }
+.b10 { font-family: 'Oswald', sans-serif; }
+
+/* Google Fonts - Serif */
+.c1 { font-family: 'Playfair Display', serif; }
+.c2 { font-family: 'Merriweather', serif; }
+
+/* Google Fonts - Monospace */
+.c3 { font-family: 'Source Code Pro', monospace; }
+.c4 { font-family: 'Fira Code', monospace; }
+.c5 { font-family: 'JetBrains Mono', monospace; }
+
+/* Font Weights */
+.weight-100 { font-weight: 100; }
+.weight-200 { font-weight: 200; }
+.weight-300 { font-weight: 300; }
+.weight-400 { font-weight: 400; }
+.weight-500 { font-weight: 500; }
+.weight-600 { font-weight: 600; }
+.weight-700 { font-weight: 700; }
+.weight-800 { font-weight: 800; }
+.weight-900 { font-weight: 900; }
+
+/* Font Styles */
+.italic { font-style: italic; }
+.oblique { font-style: oblique; }
+
+/* Font Sizes */
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-3xl { font-size: 1.875rem; }
+.text-4xl { font-size: 2.25rem; }
+.text-5xl { font-size: 3rem; }
+
+/* Text Transforms */
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+
+/* Letter Spacing */
+.tracking-tight { letter-spacing: -0.025em; }
+.tracking-normal { letter-spacing: 0em; }
+.tracking-wide { letter-spacing: 0.025em; }
+.tracking-wider { letter-spacing: 0.05em; }
+.tracking-widest { letter-spacing: 0.1em; }
+
+/* Line Height */
+.leading-tight { line-height: 1.25; }
+.leading-snug { line-height: 1.375; }
+.leading-normal { line-height: 1.5; }
+.leading-relaxed { line-height: 1.625; }
+.leading-loose { line-height: 2; }
+
+
+/* System Fonts */
+.font-system { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.font-arial { font-family: Arial, sans-serif; }
+.font-helvetica { font-family: Helvetica, Arial, sans-serif; }
+.font-times { font-family: 'Times New Roman', Times, serif; }
+.font-georgia { font-family: Georgia, serif; }
+.font-courier { font-family: 'Courier New', Courier, monospace; }
+.font-verdana { font-family: Verdana, Geneva, sans-serif; }
+.font-trebuchet { font-family: 'Trebuchet MS', Helvetica, sans-serif; }
+
+/* Google Fonts - Sans Serif */
+.font-inter { font-family: 'Inter', sans-serif; }
+.font-roboto { font-family: 'Roboto', sans-serif; }
+.font-open-sans { font-family: 'Open Sans', sans-serif; }
+.font-lato { font-family: 'Lato', sans-serif; }
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+.font-source-sans { font-family: 'Source Sans Pro', sans-serif; }
+.font-poppins { font-family: 'Poppins', sans-serif; }
+.font-raleway { font-family: 'Raleway', sans-serif; }
+.font-nunito { font-family: 'Nunito', sans-serif; }
+.font-oswald { font-family: 'Oswald', sans-serif; }
+
+/* Google Fonts - Serif */
+.font-playfair { font-family: 'Playfair Display', serif; }
+.font-merriweather { font-family: 'Merriweather', serif; }
+
+/* Google Fonts - Monospace */
+.font-source-code { font-family: 'Source Code Pro', monospace; }
+.font-fira-code { font-family: 'Fira Code', monospace; }
+.font-jetbrains { font-family: 'JetBrains Mono', monospace; }
+
+/* IDs */
+
+
+
+#blank {
+  opacity: 0;
+  height: 300px;
+}
+
+#content-box {
+  padding-top: 60px;
 }

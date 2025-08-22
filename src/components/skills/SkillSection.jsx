@@ -86,9 +86,9 @@ const SkillsSection = forwardRef(({
       <span className="text-gray-700 xl:!text-2xl lg:!text-xl md:!text-lg sm:!text-md text-md font-medium a6 flex-shrink-0 mr-2">
         {skill.name}
       </span>
-      <div className="flex flex-row items-center justify-end flex-shrink-0 min-w-0">
+      <div className="flex flex-row justify-between md:min-w-60 sm:min-w-50 min-w-50">
         <StarRating rating={skill.rating} skillName={skill.name} />
-        <span className=" lg:!text-lg md:!text-base sm:!text-sm text-xs text-gray-500 ml-1 sm:ml-2 a3 font-medium whitespace-nowrap">
+        <span className=" lg:!text-lg md:!text-base sm:!text-sm text-xs text-gray-500 ml-1 sm:ml-2 a3 font-medium ">
           {skill.level}
         </span>
       </div>

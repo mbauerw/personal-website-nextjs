@@ -1,8 +1,6 @@
 'use client'
-import { useLayoutContext } from '../contexts/LayoutContext'
 import React, { useRef, useState, useEffect, forwardRef, useImperativeHandle } from "react";
-// Remove React Router imports:
-// import { useOutletContext, useLocation } from 'react-router-dom';
+
 
 // Add Next.js imports:
 import { usePathname, useSearchParams } from 'next/navigation'
@@ -18,8 +16,8 @@ import {animateScroll as scroll, scroller } from 'react-scroll';
 import { ChevronUp } from "lucide-react";
 import ScrollReveal from "../components/animation/ScrollReveal";
 
-const Home = () => {
-  const { homeRef, heroRef, aboutRef, skillsRef, scrollToSection } = useLayoutContext()
+const Home = ({homeRef, heroRef, aboutRef, skillsRef, scrollToSection}) => {
+
   const [offset, setOffset] = useState(0);
 
   // background images

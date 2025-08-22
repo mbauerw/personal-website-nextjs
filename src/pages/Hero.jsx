@@ -97,14 +97,14 @@ const Hero = forwardRef(({ height = 900, minHeight = 900, className = "" }, ref)
           ${selectedId === 2 ? 'z-10 !text-5xl w-full overflow-visible lg:!-ml-6 whitespace-normal md:!min-h-50 min-h-70 bg-gray-400 bg-white -translate-y-14 !p-2 cursor-pointer border-red-500 border-b-red-500' : 'hover:cursor-pointer'}`} 
           
           >
-          Passions: <a className={`group-hover:underline group-hover:text-red-600 ${selectedId === 2 ? 'underline text-red-600' : ''}`}>Music</a>, learning, <Link href="/portfolio" className="group-hover:underline group-hover:decoration-wavy group-hover:text-emerald-500 transision-all duration-500">web development</Link>, reading,
+          I'm passionate about <Link href="/music" className={`group-hover:underline group-hover:text-red-600 ${selectedId === 2 ? 'underline text-red-600' : ''}`}>Music</Link>, learning, <Link href="/portfolio" className="group-hover:underline group-hover:decoration-wavy group-hover:text-emerald-500 transision-all duration-500">web development</Link>, reading,
           guitar (electric == classical), piano, tennis, greek yogurt
         </p>
         <p key={3} onMouseEnter={mouseLeave} onClick={(e) => handleParagraphClick(e, 3)} className={`group w-1/2 xs:min-w-100 min-w-[72%] min-w-100 max-h-55 z-2  a6 xs:text-4xl text-3xl hover:!text-5xl  shadow-lg shadow-black antialiased border-gray-300 border-4 border-b-gray-400 p-10 rounded-xl
           hover:z-12 hover:w-full hover:z-10 hover:w-full hover:overflow-visible hover:whitespace-normal hover:max-h-55 hover:max-h-60 hover:h-60 bg-gray-400 hover:bg-white
           lg:-ml-0 lg:mr-8 lg:-mt-8 ml-0 mr-0 truncate transision-all duration-1000 transform hover:-translate-y-14 
           ${selectedId === 3 ? 'z-10 !text-5xl w-full overflow-visible lg:!-ml-6 whitespace-normal min-h-50 bg-gray-400 bg-white !-translate-y-14 cursor-pointer border-red-500 border-b-red-500' : 'hover:cursor-pointer'}`}>
-          Loves: Family, Friends, Pets
+          The most important things in my life are friends, family and pets
         </p>
         <p key={4} onMouseEnter={mouseLeave} onClick={(e) => handleParagraphClick(e, 4)} className={`relative w-1/2 xs:min-w-100 min-w-[72%] z-3 hover:z-10 a6  xs:text-4xl text-3xl hover:!text-4xl hover:lg:!text-5xl shadow-lg shadow-black antialiased border-gray-300 border-4 border-b-gray-400 rounded-xl w-1/2 col-span-1 p-10  truncate
         hover:z-13 hover:w-full hover:overflow-visible hover:whitespace-normal hover:h-80 sm:hover:h-70 md:hover:h-60 lg:hover:h-55 hover:pt-5 bg-gray-400 hover:bg-white

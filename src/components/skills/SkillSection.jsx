@@ -32,9 +32,10 @@ const SkillsSection = forwardRef(({
       skills: [
         { name: "Python", rating: 4, level: "Advanced" },
         { name: "Express.js", rating: 4, level: "Advanced" },
+        { name: "Next.js", rating: 3, level: "Intermediate" },
         { name: "Node.js", rating: 3, level: "Intermediate" },
         { name: "PHP", rating: 3, level: "Intermediate" },
-        { name: "RESTful APIs", rating: 3, level: "Intermediate" }
+        { name: "RESTful APIs", rating: 2, level: "Beginner" }
       ]
     },
     {

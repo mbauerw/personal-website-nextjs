@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect, forwardRef } from "react";
 import { Github, Linkedin, Twitter, Mail, Heart, Coffee, MapPin, Calendar, ExternalLink, Download } from 'lucide-react';
 

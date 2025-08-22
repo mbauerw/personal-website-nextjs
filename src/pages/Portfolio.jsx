@@ -1,6 +1,6 @@
 'use client'
 import GridBox from "../components/GridBox";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useInView } from 'motion/react';
 

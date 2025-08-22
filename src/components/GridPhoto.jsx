@@ -1,4 +1,4 @@
-
+'use client'
 import RandomPhoto from "./RandomPhoto";
 
 const GridPhoto = () => {

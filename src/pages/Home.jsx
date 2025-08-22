@@ -1,7 +1,12 @@
 'use client'
 import { useLayoutContext } from '../contexts/LayoutContext'
 import React, { useRef, useState, useEffect, forwardRef, useImperativeHandle } from "react";
-import { useOutletContext, useLocation } from 'react-router-dom';
+// Remove React Router imports:
+// import { useOutletContext, useLocation } from 'react-router-dom';
+
+// Add Next.js imports:
+import { usePathname, useSearchParams } from 'next/navigation'
+
 import Hero from "./Hero";
 import Blank from "../components/Blank";
 import About from "./About";
@@ -13,12 +18,8 @@ import {animateScroll as scroll, scroller } from 'react-scroll';
 import { ChevronUp } from "lucide-react";
 import ScrollReveal from "../components/animation/ScrollReveal";
 
-
-const Home = ({ homeRef, heroRef, aboutRef, skillsRef, scrollToSection}) => {
-
+const Home = () => {
   const { homeRef, heroRef, aboutRef, skillsRef, scrollToSection } = useLayoutContext()
-
-
   const [offset, setOffset] = useState(0);
 
   // background images
@@ -28,12 +29,11 @@ const Home = ({ homeRef, heroRef, aboutRef, skillsRef, scrollToSection}) => {
   ]
 
   const [viewportSize, setViewportSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    height: typeof window !== 'undefined' ? window.innerHeight : 0
   });
 
   useEffect(() => {
-
     const handleResize = () => {
       setViewportSize({
         width: window.innerWidth,
@@ -45,30 +45,31 @@ const Home = ({ homeRef, heroRef, aboutRef, skillsRef, scrollToSection}) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // hash scrolling
-  const location = useLocation();
+  // Hash scrolling - Next.js version
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   useEffect(() => {
-    if (location.hash) {
+    // Check for hash in the URL
+    if (typeof window !== 'undefined' && window.location.hash) {
       setTimeout(() => {
-        const elementId = location.hash.substring(1);
+        const elementId = window.location.hash.substring(1);
         const element = document.getElementById(elementId);
         if (element) {
           scroller.scrollTo(elementId, {
             duration: 2000,
-            delay: 100, // 0.5 seconds
+            delay: 100,
             smooth: 'easeInOutQuart',
             offset: 0
           });
         }
       }, 0);
     }
-  }, [location.hash]);
-
+  }, [pathname]); // Listen to pathname changes instead of location.hash
 
   return (
-
     <main className="" id="homeRef" ref={homeRef}>
+      {/* Rest of your JSX stays the same */}
       <Blank
         height={"110vh"}
         offset={0}
@@ -104,7 +105,6 @@ const Home = ({ homeRef, heroRef, aboutRef, skillsRef, scrollToSection}) => {
             className={`bg-slate-900/90`}
             ref={aboutRef}>
           </About>
-        
       </div>
 
       <Blank
@@ -124,10 +124,8 @@ const Home = ({ homeRef, heroRef, aboutRef, skillsRef, scrollToSection}) => {
             </div>
           </ScrollReveal>
         </div>
-        
       </Blank>
     </main>
-
   )
 }
 

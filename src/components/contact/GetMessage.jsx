@@ -25,11 +25,12 @@ const GetMessage = ({fontStyle="text-black", bgStyle="bg-none"}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
+    setIsSubmitting(true); // Changed from setIsLoading
     setError(null);
+    setResponse(null); // Clear previous response
 
     try {
-      const response = await fetch('http://localhost:3000/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -40,16 +41,26 @@ const GetMessage = ({fontStyle="text-black", bgStyle="bg-none"}) => {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Somein bad happun');
+        throw new Error(data.error || 'Something went wrong');
       }
+      
       setResponse(data);
-      console.log('Success asdfasdfasdfsdfasdf:', data);
+      console.log('Success:', data);
+      
+      // Clear form on success
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
       
     } catch (err) {
       setError(err.message);
       console.error('Error:', err);
     } finally {
-      setIsLoading(false);
+      setIsSubmitting(false); // Changed from setIsLoading
     }
   };
 
@@ -61,6 +72,20 @@ const GetMessage = ({fontStyle="text-black", bgStyle="bg-none"}) => {
       <h3 className={`text-2xl font-semibold mb-6 text-black ${fontStyle}`}>
         Send Me a Message
       </h3>
+      
+      {/* Success Message */}
+      {response && (
+        <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+          <p>✅ Message sent successfully!</p>
+        </div>
+      )}
+
+      {/* Error Message */}
+      {error && (
+        <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+          <p>❌ Error: {error}</p>
+        </div>
+      )}
       
       <form onSubmit={handleSubmit}>
         {/* First Name & Last Name Row */}
@@ -90,7 +115,8 @@ const GetMessage = ({fontStyle="text-black", bgStyle="bg-none"}) => {
               value={formData.lastName}
               onChange={handleInputChange}
               required
-              className={inputStyle}            />
+              className={inputStyle}
+            />
           </div>
         </div>
 
@@ -106,7 +132,8 @@ const GetMessage = ({fontStyle="text-black", bgStyle="bg-none"}) => {
             value={formData.email}
             onChange={handleInputChange}
             required
-            className={inputStyle}            />
+            className={inputStyle}
+          />
         </div>
 
         {/* Subject */}
@@ -121,7 +148,8 @@ const GetMessage = ({fontStyle="text-black", bgStyle="bg-none"}) => {
             value={formData.subject}
             onChange={handleInputChange}
             required
-            className={inputStyle}          />
+            className={inputStyle}
+          />
         </div>
 
         {/* Message */}
@@ -136,8 +164,9 @@ const GetMessage = ({fontStyle="text-black", bgStyle="bg-none"}) => {
             onChange={handleInputChange}
             placeholder="Tell me about your project or how I can help you..."
             required
+            rows="5"
             className={inputStyle}           
-            />
+          />
         </div>
 
         {/* Submit Button */}

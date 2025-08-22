@@ -1,6 +1,7 @@
+'use client'
 import NavBar from "./NavBar";
 import React, { useState, useEffect, forwardRef } from "react";
-import { Link } from "react-router-dom"
+import Link from "next/link";
 import Logos from "./Logos";
 import Dropdown from "./Dropdown";
 

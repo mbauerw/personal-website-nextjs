@@ -35,11 +35,11 @@ const DropdownStack = ({showElement, heroRef, className, refs, links = [], onCli
 
   // Default links if none provided
   const defaultLinks = [
-    { to: "/", label: "HOME" },
-    { to: `/#${SECTIONS.HOME.HERO}`, label: "ABOUT", onClick: () => scrollToSection(heroRef) },
-    { to: "/portfolio", label: "PORTFOLIO" },
-    { to: "/Music", label: "MUSIC" },
-    { to: "/Contact", label: "CONTACT" }
+    { href: "/", label: "HOME" },
+    { href: `/#${SECTIONS.HOME.HERO}`, label: "ABOUT", onClick: () => scrollToSection(heroRef) },
+    { href: "/portfolio", label: "PORTFOLIO" },
+    { href: "/Music", label: "MUSIC" },
+    { href: "/Contact", label: "CONTACT" }
   ];
   
   const linksToRender = links.length > 0 ? links : defaultLinks;
@@ -55,7 +55,7 @@ const DropdownStack = ({showElement, heroRef, className, refs, links = [], onCli
         {linksToRender.map((link, index) => (
           <Link 
             key={index}
-            href={link.to} 
+            href={link.href} 
             className={linkStyle}
             onClick={link.onClick}
           >

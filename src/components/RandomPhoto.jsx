@@ -1,3 +1,4 @@
+'use client'
 const RandomPhoto = ({height}) => {
 
   const photos = [

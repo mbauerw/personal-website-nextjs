@@ -1,9 +1,6 @@
-// src/app/api/contact/route.js
-// This replaces your entire server/routes/contact.js file
-
 import nodemailer from 'nodemailer';
 
-// Convert your middleware function to a regular function
+
 const validateInput = (data) => {
   const { firstName, lastName, email, subject, message } = data;
 
@@ -41,7 +38,7 @@ const validateInput = (data) => {
 };
 
 // Your transporter stays exactly the same
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
@@ -59,22 +56,21 @@ export async function POST(request) {
   console.log('========================');
 
   try {
-    // Get request body (replaces req.body)
+   
     const body = await request.json();
-    
-    // Validate input (replaces your middleware)
     const validation = validateInput(body);
+
     if (validation.error) {
       return Response.json({ error: validation.error }, { status: 400 });
     }
 
     const { firstName, lastName, email, subject, message } = validation.validatedData;
 
-    // Process the validated data (same as your original code)
+
     console.log('Received firstName:', firstName);
     console.log('Received LAST name:', lastName);
 
-    // Your mailOptions stay exactly the same
+
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
@@ -90,10 +86,9 @@ export async function POST(request) {
       replyTo: email
     };
 
-    // Send email (same as your original code)
+
     await transporter.sendMail(mailOptions);
 
-    // Return response (replaces res.status(200).json(...))
     return Response.json({
       success: true,
       message: `Hello ${firstName}! ${lastName}, I'm glad you sent me your email: ${email} and told me ${subject} is from ${message}`,

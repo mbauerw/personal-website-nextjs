@@ -2,11 +2,8 @@
 import React, { forwardRef, useEffect, useState, useRef } from 'react';
 import Portfolio from './Portfolio';
 import Portrait from '../components/Portrait';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import ScrollReveal from '../components/animation/ScrollReveal';
-
-
-
 
 const Hero = forwardRef(({ height = 900, minHeight = 900, className = "" }, ref) => {
   const [hovered, setHovered] = useState(false);
@@ -100,7 +97,7 @@ const Hero = forwardRef(({ height = 900, minHeight = 900, className = "" }, ref)
           ${selectedId === 2 ? 'z-10 !text-5xl w-full overflow-visible lg:!-ml-6 whitespace-normal md:!min-h-50 min-h-70 bg-gray-400 bg-white -translate-y-14 !p-2 cursor-pointer border-red-500 border-b-red-500' : 'hover:cursor-pointer'}`} 
           
           >
-          Passions: <a className={`group-hover:underline group-hover:text-red-600 ${selectedId === 2 ? 'underline text-red-600' : ''}`}>Music</a>, learning, <Link to="/portfolio" className="group-hover:underline group-hover:decoration-wavy group-hover:text-emerald-500 transision-all duration-500">web development</Link>, reading,
+          Passions: <a className={`group-hover:underline group-hover:text-red-600 ${selectedId === 2 ? 'underline text-red-600' : ''}`}>Music</a>, learning, <Link href="/portfolio" className="group-hover:underline group-hover:decoration-wavy group-hover:text-emerald-500 transision-all duration-500">web development</Link>, reading,
           guitar (electric == classical), piano, tennis, greek yogurt
         </p>
         <p key={3} onMouseEnter={mouseLeave} onClick={(e) => handleParagraphClick(e, 3)} className={`group w-1/2 xs:min-w-100 min-w-[72%] min-w-100 max-h-55 z-2  a6 xs:text-4xl text-3xl hover:!text-5xl  shadow-lg shadow-black antialiased border-gray-300 border-4 border-b-gray-400 p-10 rounded-xl

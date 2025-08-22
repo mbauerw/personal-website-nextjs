@@ -1,3 +1,4 @@
+'use client'
 import { getImageUrl } from "./utils";
 
 const UrlImage =({image, size}) => {

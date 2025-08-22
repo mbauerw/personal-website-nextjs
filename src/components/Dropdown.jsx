@@ -1,14 +1,10 @@
 'use client'
-import { Link } from "react-router-dom"
 import React, { useRef, useState, useEffect, forwardRef } from "react";
 import { SECTIONS } from '../constants/sections';
 import { Menu, SquareMenu } from "lucide-react";
 import DropdownStack from "./DropdownStack";
 
 const Dropdown = ({ iconSize, className, iconClass, showElement, heroRef, refs }) => {
-
-
-
 
   const [hovered, setHovered] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -24,12 +20,10 @@ const Dropdown = ({ iconSize, className, iconClass, showElement, heroRef, refs }
     setShowDropdown(true);
   }
 
-  // resize listener
-
-
+  // Fix: Add window check for viewport size
   const [viewportSize, setViewportSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    height: typeof window !== 'undefined' ? window.innerHeight : 0
   });
 
   const breakpoint = 768;
@@ -40,17 +34,28 @@ const Dropdown = ({ iconSize, className, iconClass, showElement, heroRef, refs }
 
   const [isBroken, setIsBroken] = useState(false);
 
+  // Fix: Add window check and update viewport size in resize handler
   useEffect(() => {
     const checkBreakpoint = () => {
-
-      setIsAbove(window.innerWidth > breakpoint);
-
+      if (typeof window !== 'undefined') {
+        const width = window.innerWidth;
+        setIsAbove(width > breakpoint);
+        setViewportSize({
+          width: width,
+          height: window.innerHeight
+        });
+      }
     };
 
-    window.addEventListener('resize', checkBreakpoint);
-    return () => window.removeEventListener('resize', checkBreakpoint);
-  }, [breakpoint]);
+    // Set initial values
+    checkBreakpoint();
 
+    // Add event listener only if window exists
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', checkBreakpoint);
+      return () => window.removeEventListener('resize', checkBreakpoint);
+    }
+  }, [breakpoint]);
 
   useEffect(() => {
     if (isAbove && expanded) {
@@ -58,22 +63,13 @@ const Dropdown = ({ iconSize, className, iconClass, showElement, heroRef, refs }
     }
   }, [isAbove, expanded]);
 
-
-  // console.log("Breaker Breaker: " + isBroken);
-  // console.log(" are we above " + isAbove);
-  // console.log("The width in here is small: " + viewportSize.width);
-  // console.log("The width in here iasdfasdfasdf: " + window.innerWidth);
-
   return (
     <div className={` h-full w-auto ${className}`}>
       <div className={` h-full w-auto`}>
         {!expanded && <Menu onClick={toggleExpand} size={iconSize} className={`text-gray-400 hover:text-gray-600  ${iconClass}`} />}
         {expanded && showDropdown && <DropdownStack showElement={showElement} awayElement={showDropdown} onClickAway={handleClickAway} heroRef={heroRef} refs={refs}/>}
-
       </div>
-
     </div>
-
   )
 }
 

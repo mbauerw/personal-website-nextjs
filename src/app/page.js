@@ -1,6 +1,10 @@
-import Home from "@/pages/Home";
+import ClientLayout from '../components/ClientLayout'
+import Home from '../pages/Home'
 
 export default function HomePage() {
-  return <Home />
+  return (
+    <ClientLayout>
+      <Home />
+    </ClientLayout>
+  )
 }
-

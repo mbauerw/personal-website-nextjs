@@ -1,4 +1,4 @@
-
+'use client'
 
 
 const GridBox = ({thumb, title, description, category, className, children} ) => {

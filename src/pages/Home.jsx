@@ -45,7 +45,7 @@ const Home = ({homeRef, heroRef, aboutRef, skillsRef, scrollToSection}) => {
 
   // Hash scrolling - Next.js version
   const pathname = usePathname()
-  const searchParams = useSearchParams()
+
 
   useEffect(() => {
     // Check for hash in the URL
@@ -63,11 +63,10 @@ const Home = ({homeRef, heroRef, aboutRef, skillsRef, scrollToSection}) => {
         }
       }, 0);
     }
-  }, [pathname]); // Listen to pathname changes instead of location.hash
+  }, [pathname]);
 
   return (
     <main className="" id="homeRef" ref={homeRef}>
-      {/* Rest of your JSX stays the same */}
       <Blank
         height={"110vh"}
         offset={0}

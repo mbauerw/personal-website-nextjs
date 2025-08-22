@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic'
 import ClientLayout from '../../components/ClientLayout'
 
-const Portfolio = dynamic(() => import('../pages/Portfolio'), {
+const Portfolio = dynamic(() => import('../../pages/Portfolio'), {
   ssr: false,
   loading: () => <div>Loading...</div>
 })

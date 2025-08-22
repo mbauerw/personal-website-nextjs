@@ -1,13 +1,8 @@
 'use client'
-import dynamic from 'next/dynamic'
+import About from '@/pages/About'
 import ClientLayout from '../../components/ClientLayout'
 
-const About = dynamic(() => import('../../pages/About'), {
-  ssr: false,
-  loading: () => <div>Loading...</div>
-})
-
-export default function AboutPage() {
+export default function ContactPage() {
   return (
     <ClientLayout>
       <About />

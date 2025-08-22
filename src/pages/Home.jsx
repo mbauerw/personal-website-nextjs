@@ -1,8 +1,6 @@
 'use client'
-import { useLayoutContext } from '../contexts/LayoutContext'
 import React, { useRef, useState, useEffect, forwardRef, useImperativeHandle } from "react";
-// Remove React Router imports:
-// import { useOutletContext, useLocation } from 'react-router-dom';
+
 
 // Add Next.js imports:
 import { usePathname, useSearchParams } from 'next/navigation'
@@ -18,8 +16,8 @@ import {animateScroll as scroll, scroller } from 'react-scroll';
 import { ChevronUp } from "lucide-react";
 import ScrollReveal from "../components/animation/ScrollReveal";
 
-const Home = () => {
-  const { homeRef, heroRef, aboutRef, skillsRef, scrollToSection } = useLayoutContext()
+const Home = ({homeRef, heroRef, aboutRef, skillsRef, scrollToSection}) => {
+
   const [offset, setOffset] = useState(0);
 
   // background images
@@ -47,7 +45,7 @@ const Home = () => {
 
   // Hash scrolling - Next.js version
   const pathname = usePathname()
-  const searchParams = useSearchParams()
+
 
   useEffect(() => {
     // Check for hash in the URL
@@ -65,11 +63,10 @@ const Home = () => {
         }
       }, 0);
     }
-  }, [pathname]); // Listen to pathname changes instead of location.hash
+  }, [pathname]);
 
   return (
     <main className="" id="homeRef" ref={homeRef}>
-      {/* Rest of your JSX stays the same */}
       <Blank
         height={"110vh"}
         offset={0}

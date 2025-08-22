@@ -1,7 +1,13 @@
-import Home from "@/pages/Home";
-import ClientLayout from "@/components/ClientLayout";
+'use client'
+import dynamic from 'next/dynamic'
+import ClientLayout from '../../components/ClientLayout'
 
-export default function HomeAltPage() {
+const Home = dynamic(() => import('../pages/Home'), {
+  ssr: false,
+  loading: () => <div>Loading...</div>
+})
+
+export default function HomePage() {
   return (
     <ClientLayout>
       <Home />

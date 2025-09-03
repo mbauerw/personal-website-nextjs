@@ -38,8 +38,8 @@ const DropdownStack = ({showElement, heroRef, className, refs, links = [], onCli
     { href: "/", label: "HOME" },
     { href: `/#${SECTIONS.HOME.HERO}`, label: "ABOUT", onClick: () => scrollToSection(heroRef) },
     { href: "/portfolio", label: "PORTFOLIO" },
-    { href: "/Music", label: "MUSIC" },
-    { href: "/Contact", label: "CONTACT" }
+    { href: "/music", label: "MUSIC" },
+    { href: "/contact", label: "CONTACT" }
   ];
   
   const linksToRender = links.length > 0 ? links : defaultLinks;

@@ -1,7 +1,7 @@
 'use client'
 
 
-const GridBox = ({thumb, title, description, category, className, children} ) => {
+const GridBox = ({thumb, title, description, category, className, titleStyle="text-sm 2xs:text-lg xs:!text-xl", children} ) => {
 
   return (
     <div className="relative  aspect-square bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer group">
@@ -16,8 +16,8 @@ const GridBox = ({thumb, title, description, category, className, children} ) =>
           </div>
       </div>
       <div className="p-5 h-[30%] flex flex-col justify-center bg-gray-300/50">
-          <h3 className="text-xl font-semibold text-slate-700 mb-1">{title}</h3>
-          <p className="text-sm text-gray-500 uppercase tracking-wider">{category}  </p>
+          <h3 className={`font-semibold text-slate-700 mb-1 ${titleStyle}`}>{title}</h3>
+          <p className={`text-[3vw] xs:!text-sm text-gray-500 uppercase tracking-wider `}>{category}  </p>
       </div>
   </div>
  )

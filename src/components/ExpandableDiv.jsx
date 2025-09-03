@@ -14,6 +14,7 @@ function ExpandableDiv({
   width="xl:w-24 xl:min-w-24 w-[92vw] max-w-[92vw]",
   expandedHeight="xl:h-[84vh] h-full ",
   expandedWidth="xl:w-full w-[92vw] max-w-[92vw]",
+  overflow="overflow-y-auto",
   children,
   className}
   ) {
@@ -21,14 +22,12 @@ function ExpandableDiv({
   const [hovered, setHovered] = useState(false);
 
   const toggleExpand = () => {
-
     setExpanded(prev => !prev);
     sendState(index);
   }
 
   const mouseEnter = () => setHovered(true);
   const mouseLeave = () => setHovered(false);
-
 
   return (
     <div 
@@ -42,12 +41,12 @@ function ExpandableDiv({
         `}
     >
       {!expanded && <p className={`font-bold text-4xl xl:[writing-mode:vertical-lr] xl:rotate-180 sm:!text-5xl md:!text-6xl p-4`}>{label}</p>}
-      {/* {expanded && <div className="h-1/3 w-400 overflow-hidden"><Photo imgId={imgId} local={local}></Photo></div>} */}
-      {/* {expanded && <div className="h-1/4 w-full overflow-hidden flex justify-center items-center bg-linear-to-br from-gray-200 to-slate-300"><p className='text-8xl a1 text-neutral-800'>{label}</p></div>} */}
-
-      {expanded && <div className="h-full w-full">{children}</div>} 
       
-      
+      {expanded && (
+        <div className={`h-full w-full overflow-x-hidden ${overflow}`}>
+          {children}
+        </div>
+      )} 
     </div>
   )
 }

@@ -8,7 +8,7 @@ import ScrollReveal from "../components/animation/ScrollReveal";
 const HistoryText = ({
   h_font = "a6 p-2",
   h_style = "xl:text-[4cqh] text-[5cqh] col-span-1 row-span-1",
-  p_style = "xl:text-[2cqh] text-[2.5cqh] row-span-1 justify-self-center self-center p-2",
+  p_style = "a6 p-2 xl:text-[2cqh] text-[2.5cqh] row-span-1 justify-self-center self-center ",
   banner = "bg-gradient-to-br from-amber-500 from-3% via-white via-20% to-white to-1%", 
   banner2 = "bg-gradient-to-bl from-amber-500 from-3% via-white via-20% to-white to-1%",
   banner3 = "bg-linear-to-tr from-slate-600 to-gray-400"}) => {
@@ -40,21 +40,24 @@ const HistoryText = ({
   )
 }
 
-const AspirationsText = () =>{
+const AspirationsText = ({
+  h_font = "a6 p-2",
+  h_style = "xl:text-[4cqh] text-[5cqh] col-span-1 row-span-1",
+  p_style = "a6 p-2 xl:text-[2cqh] text-[2cqh] row-span-1 justify-self-center self-center ",
+  
+}) =>{
 
-  const h_font = "a6 p-2";
-  const h_style = "xl:text-[4cqh] text-[5cqh] col-span-1 row-span-1";
-  const p_style = "xl:text-[2cqh] text-[2.5cqh] row-span-1 justify-self-center self-center p-2";
+  
   const banner = "bg-gradient-to-br from-amber-500 from-3% via-white via-20% to-white to-1%";
   const banner2 = "bg-gradient-to-bl from-amber-500 from-3% via-white via-20% to-white to-1%";
 
   return (
-    <div className={`w-full h-full grid grid-rows-[3fr_3fr] justify-center ${banner2}`}>
-      <div className="row-span-1 col-span-1 px-5 content-center">
-        <p className={`${h_style} ${h_font}`}>
+    <div className={`w-full h-full grid grid-rows-[1fr_1fr] justify-center  ${banner2}`}>
+      <div className="row-span-1 col-span-1 content-center p-2">
+        <p className={`${h_style} ${h_font} p-5`}>
           1. Stay Up to Date on AI Advancements
         </p>
-        <p className=" a6 text-lg">
+        <p className={`${p_style} `} >
           Whether we're ready or not, AI and its impact on our relationship with technology is here to stay. 
           I am personally very excited about the prospect of harnessing this tool to enhance my potential. 
           Most coders today use AI is some aspect to help improve their workflow, and I believe learning to leverage that tool to your benefit without defaulting to reliance will be a key skill for programmers going forward. 
@@ -63,11 +66,11 @@ const AspirationsText = () =>{
 
         </p>
       </div>
-      <div className="row-span-1 col-span-1 p-5">
-        <p className={`${h_style} ${h_font}`}>
+      <div className="row-span-1 col-span-1 p-2">
+        <p className={`${h_style} ${h_font} p-5`}>
           2. Continue to Develop Full-Stack Skills
         </p>
-        <p className=" a6 text-lg">
+        <p className={`${p_style} `}>
           Like most Web Developers, my starting point to the field was frontend development. While I'm a huge fan of React and its flexibility, I also find myself enjoying the process of integrating backend functionality, such as implementing a basic Express server to receive emails directly, more and more. 
           There's also something very satisfying about executing a properly constructed API call. My hope going forward is to continue developing my backend skills with as much interest as much frontend skills. 
 

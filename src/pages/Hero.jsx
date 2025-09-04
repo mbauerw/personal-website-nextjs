@@ -92,7 +92,7 @@ const Hero = forwardRef(({ height = 900, minHeight = 900, className = "" }, ref)
           >
           Hello, I'm  <a className={`group-hover:text-blue-800 group-hover:font-semibold group-hover:text-7xl transition-all duration-400 ${firstHovered || selectedId ==1 ? 'text-blue-800 font-semibold text-7xl' : ''}`}> Max </a>
         </p>
-        <p key={2} onMouseEnter={mouseLeave} onClick={(e) => handleParagraphClick(e, 2)} className={`group w-1/2 xs:min-w-100 min-w-[72%] z-1 a6 xs:!text-4xl text-3xl shadow-lg shadow-black antialiased border-gray-300 border-4 border-b-gray-400 p-10 rounded-xl 
+        <p key={2} onMouseEnter={mouseLeave} onClick={(e) => handleParagraphClick(e, 2)} className={`group w-1/2 xs:min-w-100 min-w-[72%] z-1 a6 xs:!text-3xl text-3xl shadow-lg shadow-black antialiased border-gray-300 border-4 border-b-gray-400 p-10 rounded-xl 
           hover:z-11 hover:w-full  hover:!text-xl hover:xs:!text-2xl hover:sm:!text-3xl hover:overflow-visible hover:w-full hover:-ml-2  hover:whitespace-normal hover:min-h-60 bg-gray-400 hover:bg-white
           hover:h-70 md:hover:h-60 lg:hover:h-50 hover:p-4 lg:-ml-16 lg:mr-4 lg:-mt-8 -ml-2 mr-2 truncate transision-all duration-1000 transform hover:-translate-y-14 
           ${selectedId === 2 ? 'z-10 !text-xl xs:!text-2xl sm:!text-3xl w-full overflow-visible lg:!-ml-6 whitespace-normal md:!min-h-50 min-h-70 bg-gray-400 bg-white -translate-y-14 !p-2 cursor-pointer border-red-500 border-b-red-500' : 'hover:cursor-pointer'}`}   
@@ -107,48 +107,30 @@ const Hero = forwardRef(({ height = 900, minHeight = 900, className = "" }, ref)
           The most important things in my life are friends, family and pets
         </p>
         <p key={4} onMouseEnter={mouseLeave} onClick={(e) => handleParagraphClick(e, 4)} className={`relative w-1/2 xs:min-w-100 min-w-[72%] z-3 hover:z-10 a6  xs:text-4xl text-3xl hover:!text-4xl hover:lg:!text-5xl shadow-lg shadow-black antialiased border-gray-300 border-4 border-b-gray-400 rounded-xl w-1/2 col-span-1 p-10  truncate
-        hover:z-13 hover:w-full hover:!text-2xl hover:sm:!text-3xl hover:p-6 hover:overflow-visible hover:whitespace-normal hover:h-80 sm:hover:h-70 md:hover:h-60 lg:hover:h-55 hover:pt-5 bg-gray-400 hover:bg-white
+        hover:z-13 hover:w-full hover:!text-2xl hover:sm:!text-4xl hover:p-6 hover:overflow-visible hover:whitespace-normal hover:h-80 sm:hover:h-70 md:hover:h-60 lg:hover:h-55 hover:pt-5 bg-gray-400 hover:bg-white
         lg:ml-0 lg:mr-0 lg:-mt-8 ml-2 -mr-2  truncate transision-all duration-1000 transform hover:-translate-y-14 
         ${selectedId === 4 ? 'z-10 lg:!text-5xl text-4xl w-full overflow-visible lg:!-ml-6 whitespace-normal min-h-70 bg-gray-400 bg-white -translate-y-14 !p-2 cursor-pointer border-red-500 border-b-red-500' : 'hover:cursor-pointer'}`}>
           Strengths: Flexibility, creativity, determination, patience
         </p>
-        <div onClick={(e) => handleParagraphClick(e, 6)} onMouseEnter={mouseLeave} className={`relative w-1/2 xs:min-w-100 min-w-[72%] z-3 hover:z-10 a6 text-4xl hover:!text-5xl shadow-lg shadow-black antialiased border-gray-300 rounded-xl w-1/2 col-span-1  truncate
-        hover:overflow-visible hover:whitespace-normal hover:h-80 sm:hover:h-70 md:hover:h-60 lg:hover:h-55 hover:w-full
-        lg:ml-4 lg:-mr-2 lg:-mt-8 ml-4 -mr-4  truncate transision-all duration-1000 transform hover:-translate-y-14 
-        ${selectedId === 6 ? 'z-8  !text-2xl xs:!text-3xl sm:!text-4xl w-full overflow-visible lg:!-ml-6 whitespace-normal min-h-70 bg-gray-400 bg-white !-translate-y-14 cursor-pointer border-red-500 border-b-red-500' : 'hover:cursor-pointer'}`}>
-          {!hovered || selectedId !== 6 ? (
-            <p key={5} className={`absolute z-3 xs:min-w-full min-w-[110%] !min-h-55 hover:z-10 a6 xs:text-4xl text-3xl hover:!text-2xl shadow-lg shadow-black antialiased border-gray-300 border-4 border-b-gray-400 rounded-xl h-full p-2
-              hover:z-14 sm:hover:w-full hover:overflow-visible hover:whitespace-normal hover:min-h-full hover:-ml-0 hover:mr-8 bg-gray-400 hover:bg-white
-              lg:ml-0 lg:mr-0 truncate  transision-all duration-1000 pl-10 `}
-              onMouseEnter={mouseEnter}
-              onMouseLeave={mouseLeave}
-               >
-              <br />
-              Weaknesses: <span className="text-bold text-blue-800 text-7xl"> ... </span>
-            </p>
+        <p key={5} className={`col-span-1 z-3 w-1/2 min-w-100 !min-h-45 hover:0 a6 p-10 xs:text-4xl text-3xl hover:!text-3xl shadow-lg shadow-black antialiased border-gray-300 border-4 border-b-gray-400 rounded-xl h-full p-2
+          hover:z-20 sm:hover:w-full hover:overflow-visible hover:whitespace-normal hover:!min-h-80 hover:-ml-0 hover:mr-8 bg-gray-400 hover:bg-white hover:p-2
+          lg:ml-0 lg:-mr-8 lg:-mt-8 ml-4 -mr-4 truncate transision-all duration-1000 pl-10 transform hover:-translate-y-12
+          ${selectedId === 5 ? 'z-10 lg:!text-3xl text-3xl w-full p-2 overflow-visible lg:!-ml-6 whitespace-normal !min-h-80 bg-gray-400 bg-white -translate-y-14 !p-2 cursor-pointer border-red-500 border-b-red-500' : 'hover:cursor-pointer'}`}
+          onMouseEnter={mouseEnter}
+          onMouseLeave={mouseLeave}
+          onClick={(e) => handleParagraphClick(e, 5)}
+            >
+          {hovered || selectedId === 5 ? "Weaknesses: Unconsciously setting down what I'm holding in my hand while in the process of looking for something I've lost and then, having found what I was originally looking for, needing to spend even more time looking for what I just had in my hand" : "Weaknesses: ..." }  
 
-          ) : (
-            <p key={6} className={`absolute z-3 xs:min-w-full min-w-[110%] hover:z-10 a6 text-4xl hover:!text-4xl bg-neutral-100 shadow-lg shadow-black antialiased border-gray-200 border-4 border-b-gray-400 rounded-xl 
-              hover:z-14 sm:hover:w-full hover:overflow-visible hover:whitespace-normal hover:-ml-0 hover:mr-4 hover:min-h-full bg-gray-400 hover:bg-white hover:p-5
-              lg:-ml-0 lg:mr-0 lg:-mt-0 truncate transision-all duration-1000
-              ${selectedId === 6 ? 'z-10  !text-2xl xs:!text-3xl sm:!text-4xl w-full overflow-visible lg:!-ml-6 whitespace-normal min-h-70 bg-gray-400 bg-white !-translate-y-14 cursor-pointer border-red-500 border-b-red-500' : 'hover:cursor-pointer'}`}
-              onMouseEnter={mouseEnter}
-              onMouseLeave={mouseLeave}
-              onClick={(e) => handleParagraphClick(e, 6)} >
-              Weaknesses: Unconsciously setting down what I'm holding in my hand while in the process of looking for something I've lost and then, having found what I was originally looking for, needing to spend even more time looking for what I just had in my hand
-            </p>
-          )}
-
-        </div>
-
-
+          {/* Weaknesses: <span className="text-bold text-blue-800 text-7xl"> ... </span> */}
+        </p>
       </div>
       {/* line */}
       <div className='bg-white lg:-mt-8 lg:mb-[10px] z-0 lg:col-span-1 lg:row-span-1 row-span-1 col-span-1 lg:h-full h-2 lg:w-[95%] lg:mr-0 lg:-ml-2 mr-4 ml-4 xs:max-w-screen '>
       </div>
       {/* portrait   */}
       <div id="portrait-wrap" className='col-span-1 row-span-1 w-[95%] h-[95%] justify-self-center content-center'>
-        <Portrait image={"/images/headshot_trim.png"} background='bg-[url("/images/background/purple_smudge.jpg")] cursor-pointer' height={500} width={300}></Portrait>
+        <Portrait image={"/images/headshot_tri.png"} background='bg-[url("/images/background/purple_smudge.jpg")] cursor-pointer' height={500} width={300}></Portrait>
       </div>
     </div>
   )

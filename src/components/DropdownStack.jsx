@@ -14,6 +14,10 @@ const DropdownStack = ({ showElement, heroRef, className, refs, links = [], onCl
     });
   };
 
+  const mouseLeave = () => {
+
+  }
+
   // Handle click away functionality
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -49,7 +53,7 @@ const DropdownStack = ({ showElement, heroRef, className, refs, links = [], onCl
     
     <div
       ref={dropdownRef} 
-      className={`absolute top-full -mt-10  -ml-15 w-35 bg-neutral-600 backdrop-blur-md cursor-pointer rounded-md shadow-lg z-50 transition-all duration-1200`}
+      className={`absolute top-full -mt-10  -ml-15 w-35 bg-slate-900/50 backdrop-blur-md cursor-pointer rounded-md shadow-lg z-50 transition-all duration-1200`}
       onClickAway={onClickAway}
       onMouseLeave={onClickAway}
     >
@@ -57,7 +61,7 @@ const DropdownStack = ({ showElement, heroRef, className, refs, links = [], onCl
       <Link
         key={index}
         href={link.href}
-        className="block rounded-sm outline-1 outline-neutral-700 cursor-pointer px-4 py-2 text-neutral-200 hover:bg-neutral-800 hover:text-white transition-colors duration-200"
+        className="block rounded-sm outline-1 outline-neutral-700 cursor-pointer px-4 py-2 text-neutral-200 hover:bg-black hover:text-white transition-colors duration-200"
         onClick={link.onClick}        
       >
         {link.label}

@@ -6,7 +6,7 @@ import DropdownStack from "./DropdownStack";
 
 function NavBar({showElement, homeRef, heroRef, skillsRef, aboutRef, refs, scrollToSection, links = [], navStyle = "bg-neutral-600/0 rounded-xl " }) {
 
-    const linkStyle = "text-neutral-200 hover:bg-neutral-800 hover:rounded-md hover:-translate-y-[2px] hover:shadow-sm hover:shadow-neutral-900 transition-all duration-800 b5 md:flex hidden cursor-pointer px-2 py-1"
+    const linkStyle = "text-neutral-200 hover:bg-black hover:rounded-md hover:-translate-y-[2px] hover:shadow-sm hover:shadow-neutral-900 transition-all duration-800 b5 md:flex hidden cursor-pointer px-2 py-0"
 
     const [aboutHovered, setAboutHovered] = useState(false);
     const [firstClick, setFirstClick] = useState(true);
@@ -56,14 +56,14 @@ function NavBar({showElement, homeRef, heroRef, skillsRef, aboutRef, refs, scrol
             {/* Dropdown menu */}
             {aboutHovered && (
               <div 
-                className={`absolute top-full mt-2  -ml-10 w-35 bg-neutral-700/90 backdrop-blur-md cursor-pointer rounded-md shadow-lg z-50 transition-all duration-1200 ${aboutHovered ? 'opacity-100 cursor-pointer' : 'opacity-0'}`}
+                className={`absolute top-full mt-2  -ml-10 w-35 bg-slate-900/50 backdrop-blur-md cursor-pointer rounded-md shadow-lg z-50 transition-all duration-1200 ${aboutHovered ? 'opacity-100 cursor-pointer' : 'opacity-0'}`}
                 onMouseLeave={mouseLeave}
                 >
                 {aboutDropdownLinks.map((link, index) => (
                   <Link
                     key={index}
                     href={link.href}
-                    className="block rounded-sm outline-1 outline-neutral-700 cursor-pointer px-4 py-2 text-neutral-200 hover:bg-neutral-800 hover:text-white transition-colors duration-200"
+                    className="block rounded-sm  cursor-pointer px-4 py-2 text-neutral-200 hover:bg-black hover:text-white transition-colors duration-200"
                     onClick={link.onClick}        
                   >
                     {link.label}

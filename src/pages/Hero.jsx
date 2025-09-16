@@ -113,9 +113,9 @@ const Hero = forwardRef(({ height = 900, minHeight = 900, className = "" }, ref)
           Strengths: Flexibility, creativity, determination, patience
         </p>
         <p key={5} className={`col-span-1 z-3 w-1/2 xs:min-w-100 min-w-[72%] !min-h-45 hover:0 a6 p-10 xs:text-4xl text-3xl hover:!text-3xl shadow-lg shadow-black antialiased bg-gray-400  border-gray-300 border-4 border-b-gray-400 rounded-xl h-full p-2
-          hover:z-20 sm:hover:w-full hover:overflow-visible hover:whitespace-normal hover:!min-h-160 hover:xs:!min-h-140 hover:sm:!min-h-120 hover:!min-h-100 hover:bg-white hover:p-2 hover:!text-xl hover:xs:!text-2xl hover:sm:!text-3xl
+          hover:z-20 sm:hover:w-full hover:overflow-visible hover:whitespace-normal hover:!min-h-160 hover:xs:!min-h-140 hover:sm:!min-h-120 hover:md:!min-h-80 hover:bg-white hover:p-2 hover:!text-xl hover:xs:!text-2xl hover:sm:!text-3xl
           lg:ml-0 lg:-mr-8 lg:-mt-8 ml-4 -mr-4 truncate transision-all duration-1000 pl-10 transform hover:-translate-y-12
-          ${selectedId === 5 ? 'z-10 lg:!text-3xl text-3xl xs:!text-2xl w-1/2 xs:min-w-100 sm:min-w-[72%] sm:w-full  p-2 overflow-visible lg:!-ml-6 whitespace-normal !min-h-160 xs:!min-h-140 md:!min-h-100 bg-gray-400 bg-white -translate-y-14 !p-2 cursor-pointer border-red-500 border-b-red-500' : 'hover:cursor-pointer'}`}
+          ${selectedId === 5 ? 'z-10 lg:!text-3xl text-3xl xs:!text-2xl w-1/2 xs:min-w-100 sm:min-w-[72%] sm:w-full  p-2 overflow-visible lg:!-ml-6 whitespace-normal !min-h-160 xs:!min-h-140 sm:!min-h-120 md:!min-h-80 bg-gray-400 bg-white -translate-y-14 !p-2 cursor-pointer border-red-500 border-b-red-500' : 'hover:cursor-pointer'}`}
           onMouseEnter={mouseEnter}
           onMouseLeave={mouseLeave}
           onClick={(e) => handleParagraphClick(e, 5)}

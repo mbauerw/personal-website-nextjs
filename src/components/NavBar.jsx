@@ -4,11 +4,12 @@ import React, { useRef, useState, useEffect, forwardRef, useMemo } from "react";
 import { SECTIONS } from '../constants/sections';
 import DropdownStack from "./DropdownStack";
 
-function NavBar({showElement, homeRef, heroRef, skillsRef, aboutRef, refs, scrollToSection, links = [], navStyle = "bg-neutral-600 rounded-xl " }) {
+function NavBar({showElement, homeRef, heroRef, skillsRef, aboutRef, refs, scrollToSection, links = [], navStyle = "bg-neutral-600/0 rounded-xl " }) {
 
-    const linkStyle = "text-neutral-200 hover:bg-neutral-800 hover:rounded-md hover:-translate-y-[2px] hover:shadow-sm hover:shadow-neutral-900 transition-all duration-800 b5 md:flex hidden"
+    const linkStyle = "text-neutral-200 hover:bg-neutral-800 hover:rounded-md hover:-translate-y-[2px] hover:shadow-sm hover:shadow-neutral-900 transition-all duration-800 b5 md:flex hidden cursor-pointer px-2 py-1"
 
     const [aboutHovered, setAboutHovered] = useState(false);
+    const [firstClick, setFirstClick] = useState(true);
 
     const mouseEnter = () => {
       setAboutHovered(true);
@@ -16,9 +17,12 @@ function NavBar({showElement, homeRef, heroRef, skillsRef, aboutRef, refs, scrol
 
     const mouseLeave = () => {
       setAboutHovered(false);
+
     }
 
-    // console.log('Refs received:', {heroRef, skillsRef, aboutRef});
+    const handleClick = () => {
+      setAboutHovered(prev => !prev);
+    }
    
 
     // Example dropdown links for ABOUT section
@@ -31,7 +35,7 @@ function NavBar({showElement, homeRef, heroRef, skillsRef, aboutRef, refs, scrol
     const aboutDropdownLinks = links.length > 0 ? links : defaultLinks;
 
     return (
-      <nav 
+      <nav
         className={`w-2/3 h-full content-center transition-all transition-discrete ease-in-out duration-800
           ${showElement ? 'opacity-100 duration-1600' : 'opacity-0 duration-800'} ${navStyle}`}>
         <ul 
@@ -40,27 +44,26 @@ function NavBar({showElement, homeRef, heroRef, skillsRef, aboutRef, refs, scrol
           
           {/* ABOUT link with dropdown container */}
           <div 
-            className="relative"
-            onMouseEnter={mouseEnter} 
+            className="relative cursor-pointer"
           >
-            <Link 
-              href={`/#${SECTIONS.HOME.HERO}`} 
+            <div 
               className={linkStyle} 
-              onClick={() => scrollToSection(heroRef)}
+              onClick={handleClick}
             >
               ABOUT
-            </Link>
+            </div>
             
             {/* Dropdown menu */}
             {aboutHovered && (
               <div 
-                className={`absolute top-full -ml-10 w-35 bg-neutral-700 rounded-md shadow-lg z-50 transition-all duration-1200 ${aboutHovered ? 'opacity-100' : 'opacity-0'}`}
-                onMouseLeave={mouseLeave}>
+                className={`absolute top-full mt-2  -ml-10 w-35 bg-neutral-700/90 backdrop-blur-md cursor-pointer rounded-md shadow-lg z-50 transition-all duration-1200 ${aboutHovered ? 'opacity-100 cursor-pointer' : 'opacity-0'}`}
+                onMouseLeave={mouseLeave}
+                >
                 {aboutDropdownLinks.map((link, index) => (
                   <Link
                     key={index}
                     href={link.href}
-                    className="block px-4 py-2 text-neutral-200 hover:bg-neutral-600 hover:text-white transition-colors duration-200"
+                    className="block rounded-sm outline-1 outline-neutral-700 cursor-pointer px-4 py-2 text-neutral-200 hover:bg-neutral-800 hover:text-white transition-colors duration-200"
                     onClick={link.onClick}        
                   >
                     {link.label}
@@ -79,8 +82,3 @@ function NavBar({showElement, homeRef, heroRef, skillsRef, aboutRef, refs, scrol
   }
   
   export default NavBar;
-
-
-
-
-      

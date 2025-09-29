@@ -63,7 +63,7 @@ function Portfolio({
 
   const thumbs = [
     "bg-[url('/images/thumbs/ratio_heatmap.png')]",
-    "bg-[url('/images/thumbs/play_up_logo.png')]",
+    "bg-[url('/images/thumbs/regroove-blueish.png')]",
     "bg-[url('/images/thumbs/elff.png')]",
     "bg-[url('/images/thumbs/Bauer-Photo-scaled.webp')]",
     "bg-[url('/assets/GitHub_Logo.png')]",
@@ -73,7 +73,7 @@ function Portfolio({
   const portLink = (<a href="#" className="bg-white bg-opacity-90 text-slate-700 px-5 py-2.5 rounded-full font-medium no-underline hover:bg-white transition-colors duration-300">View Project</a>)
   
   const gdplink = (<Link href="/gdp" className="bg-white bg-opacity-90 text-slate-700 px-5 py-2.5 rounded-full font-medium no-underline hover:bg-white transition-colors duration-300">View Project</Link>);
-  const playuplink = (<a href="https://github.com/mbauerw/playup-next" className="bg-white bg-opacity-90 text-slate-700 px-5 py-2.5 rounded-full font-medium no-underline hover:bg-white transition-colors duration-300">View Project</a>);
+  const playuplink = (<a href="https://github.com/mbauerw/regroove-web" className="bg-white bg-opacity-90 text-slate-700 px-5 py-2.5 rounded-full font-medium no-underline hover:bg-white transition-colors duration-300">View Project</a>);
   const elfflink = (<a href="https://elff.com/" className="bg-white bg-opacity-90 text-slate-700 px-5 py-2.5 rounded-full font-medium no-underline hover:bg-white transition-colors duration-300">View Project</a>);
   const dadlink = (<a href="https://johannesmbauer.com/" className="bg-white bg-opacity-90 text-slate-700 px-5 py-2.5 rounded-full font-medium no-underline hover:bg-white transition-colors duration-300">View Project</a>);
   const gitlink = (<a href="https://github.com/mbauerw" className="bg-white bg-opacity-90 text-slate-700 px-5 py-2.5 rounded-full font-medium no-underline hover:bg-white transition-colors duration-300">View Project</a>);
@@ -104,7 +104,7 @@ function Portfolio({
          
           <GridBox thumb={thumbs[0]} title={"The Impact of Economic Growth on Population Change"} category={"Data Analysis"} description={"Data Analysis project exploring the relationships between economic growth and population change across the United States"} titleStyle={"text-sm 2xs:text-md xs:!text-lg"} className={"bg-cover"} children={gdplink}></GridBox>
  
-          <GridBox thumb={thumbs[1]} title={"Play Up"} category={"Web app and API Integration"} description={"Web App leveraging Spotify's API to provide more compelling playlists"} children={playuplink}></GridBox>
+          <GridBox thumb={thumbs[1]} title={"ReGroove"} category={"Web App and API Integration"} description={"Web App leveraging Spotify's API to provide more compelling playlists"} children={playuplink} className={"bg-cover"}></GridBox>
 
           <GridBox thumb={thumbs[2]} title={"East Lansing Film Festival"} category={"Web Development"} description={"Website for the non-profit film patron The East Lansing Film Festival"} children={elfflink}></GridBox>
 

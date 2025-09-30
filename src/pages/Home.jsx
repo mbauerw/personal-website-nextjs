@@ -113,7 +113,7 @@ const Home = ({homeRef, heroRef, aboutRef, skillsRef, scrollToSection}) => {
         className="opacity-100 relative"
         speed={-40}
       >
-        <div className="xs:w-screen xs:h-screen xs:max-w-screen max-w-[50vw]  flex flex-col justify-end items-end p-2 pr-6 z-40 overflow-hidden">
+        <div className="w-screen h-screen max-w-screen flex flex-col justify-end items-end p-2 pr-6 z-40 overflow-hidden">
           <ScrollReveal margin="0px 0px -200px 0px" threshold={.5} distance={20} duration={1.5} delay={.5}>
             <div className={`w-10 h-10 bg-white opacity-80 rounded-md shadow-sm hover:cursor-pointer shadow-black z-50  flex justify-center items-center`}>
               <ChevronUp className="animate-bounce " onClick={() => scrollToSection(homeRef)}>

@@ -50,7 +50,7 @@ function Portfolio({
             
             <GridBox thumb={thumbs[0]} title={"The Impact of Economic Growth on Population Change"} category={"Data Analysis"} description={"Data Analysis project exploring the relationships between economic growth and population change across the United States"} titleStyle={"text-sm 2xs:text-md xs:!text-lg"} className={"bg-cover"} children={gdplink}></GridBox>
    
-            <GridBox thumb={thumbs[1]} title={"ReGroove"} category={"Web App and API Integration"} description={"Web App leveraging Spotify's API to provide more compelling playlists"} children={playuplink} className={"bg-cover"}></GridBox>
+            <GridBox thumb={thumbs[1]} title={"ReGroove"} category={"Web App and API Integration"} description={"Web App leveraging Spotify's API to remix playlists and deposit them directly to your profile"} children={playuplink} className={"bg-cover"}></GridBox>
 
             <GridBox thumb={thumbs[2]} title={"East Lansing Film Festival"} category={"Web Development"} description={"Website for the non-profit film patron The East Lansing Film Festival"} children={elfflink}></GridBox>
 

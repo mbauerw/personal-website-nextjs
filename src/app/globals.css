@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=Source+Code+Pro:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Crimson+Text:wght@400;600;700&family=Fira+Code:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Special+Elite&family=IBM+Plex+Mono&family=Roboto+Mono&family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 
@@ -22,6 +23,7 @@
   --color-tahiti: #3ab7bf;
   --color-bermuda: #78dcca;
   --color-logo: #494f55;
+  --font-jakarta: 'Plus Jakarta Sans', system-ui, sans-serif;
   --breakpoint-2xs: 20rem;
   --breakpoint-xs: 30rem;
   --breakpoint-2xl: 100rem;

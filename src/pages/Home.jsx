@@ -15,6 +15,7 @@ import SkillsSection from "../components/skills/SkillSection";
 import {animateScroll as scroll, scroller } from 'react-scroll';
 import { ChevronUp } from "lucide-react";
 import ScrollReveal from "../components/animation/ScrollReveal";
+import CodebaseRemapPreview from "../components/CodebaseRemapPreview";
 
 const Home = ({homeRef, heroRef, aboutRef, skillsRef, scrollToSection}) => {
 
@@ -82,6 +83,9 @@ const Home = ({homeRef, heroRef, aboutRef, skillsRef, scrollToSection}) => {
         >
         </BouncingArrow>
       </Blank>
+
+      <CodebaseRemapPreview />
+
       <div id={SECTIONS.HOME.HERO}>
         <Hero
           minHeight={900}

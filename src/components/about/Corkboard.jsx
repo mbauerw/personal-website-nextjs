@@ -169,7 +169,7 @@ function NoteFront({ blurb, note, number, lifted }) {
       );
     case "polaroid":
       return (
-        <span aria-hidden className={`${FACE} ${shadow} flex flex-col bg-[#f7f5ef] p-[6cqw] pb-0`} style={HIDE_BACKFACE}>
+        <span aria-hidden className={`${FACE} ${shadow} bg-[#f7f5ef]`} style={HIDE_BACKFACE}>
           {/* washi tape */}
           <span
             className="absolute left-1/2 top-0 z-10 block h-[11cqw] w-[38cqw] -translate-x-1/2 -translate-y-1/2 -rotate-3"
@@ -179,18 +179,23 @@ function NoteFront({ blurb, note, number, lifted }) {
               boxShadow: "0 1px 2px rgba(0,0,0,0.2)",
             }}
           />
-          <span
-            className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden"
-            style={{
-              background:
-                "radial-gradient(circle at 28% 26%, #fde68a 0 11%, transparent 12%), linear-gradient(170deg, #7dd3fc 0%, #f9a8d4 58%, #fdba74 100%)",
-              boxShadow: "inset 0 0 14px rgba(0,0,0,0.35)",
-            }}
-          >
-            <Icon fill="currentColor" strokeWidth={1.5} className="size-[26cqw] text-white/85 drop-shadow" />
-          </span>
-          <span className="a6 flex h-[24%] min-h-[2.2em] shrink-0 items-center justify-center text-[length:11cqw] font-bold text-slate-700">
-            {blurb.label}
+          {/* padding lives on this inner span: cqw on the face itself would resolve against the
+              page rather than the card, since the face is the container */}
+          <span className="relative flex h-full flex-col px-[6cqw] pt-[6cqw]">
+            <span
+              className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden"
+              style={{
+                background:
+                  "radial-gradient(circle at 28% 26%, #fde68a 0 11%, transparent 12%), linear-gradient(170deg, #7dd3fc 0%, #f9a8d4 58%, #fdba74 100%)",
+                boxShadow: "inset 0 0 14px rgba(0,0,0,0.35)",
+              }}
+            >
+              <Icon fill="currentColor" strokeWidth={1.5} className="size-[26cqw] text-white/85 drop-shadow" />
+            </span>
+            <span className="flex h-[26%] shrink-0 items-center justify-between gap-[2cqw]">
+              <span className="a6 text-[length:10cqw] font-bold leading-tight text-slate-700">{blurb.label}</span>
+              <span className="a6 shrink-0 whitespace-nowrap text-[length:max(0.625rem,6cqw)] tracking-wider text-slate-500">{number}</span>
+            </span>
           </span>
         </span>
       );

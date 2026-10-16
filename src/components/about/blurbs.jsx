@@ -6,7 +6,7 @@ const blurbs = [
   {
     id: "intro",
     label: "Hello",
-    title: "Hello, I'm Max",
+    title: "Introduction",
     body: (
       <>
         Hello, I'm <span className="font-semibold text-blue-800">Max</span>

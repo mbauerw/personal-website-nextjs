@@ -137,6 +137,7 @@ function About({
           label="History"
           imgId="/images/background/puchberg.jpeg"
           isActive={activeButton === "1"}
+          isCompact={activeButton !== null && activeButton !== "1"}
           sendState={setActiveButton}
         ><HistoryText></HistoryText> </ExpandableDiv>
 
@@ -146,6 +147,7 @@ function About({
           imgId='KvSDVHD'
           local={false}
           isActive={activeButton === "3"}
+          isCompact={activeButton !== null && activeButton !== "3"}
           sendState={setActiveButton}
         >
           <AspirationsText></AspirationsText>
@@ -157,6 +159,7 @@ function About({
           imgId='jRetXxS'
           local={false}
           isActive={activeButton === "2"}
+          isCompact={activeButton !== null && activeButton !== "2"}
           sendState={setActiveButton}
 
         >

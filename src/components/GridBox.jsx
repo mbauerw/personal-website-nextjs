@@ -2,7 +2,24 @@
 
 import { useState } from 'react'
 
-const GridBox = ({ thumb, title, description, category, className, titleStyle = "text-sm 2xs:text-lg xs:!text-xl", children }) => {
+// Optional layout props (defaults reproduce the original square card):
+//   boxClassName      – sizing of the outer card (default: square)
+//   thumbAreaClassName – height/aspect of the thumbnail area (default: 70% of the card)
+//   infoClassName     – height of the title/category strip (default: 30% of the card)
+//   revealOnFocus     – also show the overlay while a link inside it has keyboard focus
+const GridBox = ({
+  thumb,
+  title,
+  description,
+  category,
+  className,
+  titleStyle = "text-sm 2xs:text-lg xs:!text-xl",
+  boxClassName = "aspect-square",
+  thumbAreaClassName = "h-[70%]",
+  infoClassName = "h-[30%]",
+  revealOnFocus = false,
+  children,
+}) => {
   const [isContentVisible, setIsContentVisible] = useState(false)
 
   const handleClick = () => {
@@ -11,13 +28,13 @@ const GridBox = ({ thumb, title, description, category, className, titleStyle = 
 
   return (
     <div
-      className="relative aspect-square bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer group"
+      className={`relative ${boxClassName} bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer group`}
       onClick={handleClick}
     >
-      <div className={`w-full h-[70%] bg-contain bg-center bg-no-repeat relative ${thumb} ${className}`}>
+      <div className={`w-full ${thumbAreaClassName} bg-contain bg-center bg-no-repeat relative ${thumb} ${className}`}>
         <div
           id="gb-hidden-content"
-          className={`absolute inset-0 bg-black/90 bg-opacity-40 flex flex-col items-center justify-center transition-opacity duration-300 ${isContentVisible ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+          className={`absolute inset-0 bg-black/90 bg-opacity-40 flex flex-col items-center justify-center transition-opacity duration-300 ${isContentVisible ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} ${revealOnFocus ? 'group-focus-within:opacity-100' : ''}`}
         >
           <div className="h-1/2 flex flex-col justify-end items-center pb-5">
             {children}
@@ -27,7 +44,7 @@ const GridBox = ({ thumb, title, description, category, className, titleStyle = 
           </div>
         </div>
       </div>
-      <div className="p-5 h-[30%] flex flex-col justify-center bg-gray-300/50">
+      <div className={`p-5 ${infoClassName} flex flex-col justify-center bg-gray-300/50`}>
         <h3 className={`font-semibold text-slate-700 mb-1 ${titleStyle}`}>{title}</h3>
         <p className={`text-[3vw] xs:!text-sm text-gray-500 uppercase tracking-wider `}>{category}</p>
       </div>
